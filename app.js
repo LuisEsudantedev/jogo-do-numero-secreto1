@@ -3,7 +3,7 @@ let listaDeNumerosSorteados = [];
 let numeroLimite = 10;
 let numeroSecreto = gerarNumeroAleatorio();
 let tentativas = 1;
-//Cria função que exibe testo na tela, e incremento de responsiveVoice.
+//Cria função que exibe testo na tela, e seta comando/ configura para português responsiveVoice.
 function exibirTextoNaTela(tag, texto) {
     let campo = document.querySelector(tag);
     campo.innerHTML = texto;
