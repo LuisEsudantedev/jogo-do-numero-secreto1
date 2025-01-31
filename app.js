@@ -1,4 +1,5 @@
 alert('essa versão está está sendo atualizado.');
+console.log('Versao em atualização.');
 
 //Cria variáveis utilizadas no jogo.
 let listaDeNumerosSorteados = [];
