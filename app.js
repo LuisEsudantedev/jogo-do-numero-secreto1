@@ -1,4 +1,4 @@
-alert('essa versão está está sendo atualizado.);
+alert('essa versão está está sendo atualizado.');
 
 //Cria variáveis utilizadas no jogo.
 let listaDeNumerosSorteados = [];
