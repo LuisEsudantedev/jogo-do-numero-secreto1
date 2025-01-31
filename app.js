@@ -67,7 +67,7 @@ function reiniciarJogo() {
 }
 
 
-alerta('Esse jogo vai ser atualizado.');
+alert('Esse jogo vai ser atualizado.');
 
 
 
