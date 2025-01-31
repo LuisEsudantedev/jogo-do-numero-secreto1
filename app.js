@@ -1,3 +1,5 @@
+alert('essa versão está está sendo atualizado.);
+
 //Cria variáveis utilizadas no jogo.
 let listaDeNumerosSorteados = [];
 let numeroLimite = 10;
@@ -66,8 +68,6 @@ function reiniciarJogo() {
     document.getElementById('reiniciar').setAttribute('disabled', true)
 }
 
-
-alert('Esse jogo vai ser atualizado.');
 
 
 
