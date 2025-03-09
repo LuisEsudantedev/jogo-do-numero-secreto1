@@ -1,3 +1,27 @@
+
+// Importar a biblioteca MaryTTS
+const MaryTTS = require('marytts');
+
+// Criar uma instância da MaryTTS
+const mary = new MaryTTS();
+
+// Definir a língua e a voz
+mary.setLocale('pt-BR');
+mary.setVoice('cmu-slt-hsmm');
+
+// Definir o texto a ser falado
+const texto = 'Olá, bem-vindo ao nosso site!';
+
+// Fazer a MaryTTS falar
+mary.speak(texto, (err) => {
+ if (err) {
+ console.error(err);
+ } else {
+ console.log('Falei!');
+ }
+});
+
+
 alert('essa versão está está sendo atualizado.');
 console.log('Versao em atualização.');
 
