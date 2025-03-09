@@ -70,7 +70,7 @@ function reiniciarJogo() {
 }
 
 
-```
+
 // Importar a biblioteca MaryTTS
 const MaryTTS = require('marytts');
 
