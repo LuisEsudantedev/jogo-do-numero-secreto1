@@ -7,6 +7,7 @@ let listaDeNumerosSorteados = []; // Lista para armazenar números já sorteados
 let numeroLimite = 10; // Limite máximo do número secreto
 let numeroSecreto = gerarNumeroAleatorio(); // Número secreto gerado aleatoriamente
 let tentativas = 1; // Contador de tentativas do jogador
+let pontuacao = 0; // Variável para armazenar a pontuação do jogador
 
 // Função que exibe texto na tela e utiliza áudio em português brasileiro com a biblioteca responsiveVoice
 function exibirTextoNaTela(tag, texto) {
@@ -15,10 +16,10 @@ function exibirTextoNaTela(tag, texto) {
     responsiveVoice.speak(texto, 'Brazilian Portuguese Female', {rate: 1.2}); // Reproduz o texto com áudio
 }
 
-// Função para exibir a mensagem inicial do jogo
+// Função para exibir a mensagem inicial do jogo, incluindo a pontuação
 function exibirMensagemInicial() {
     exibirTextoNaTela('h1', 'Jogo do número secreto'); // Título do jogo
-    exibirTextoNaTela('p', 'Escolha um número entre 1 e 10'); // Instruções para o jogador
+    exibirTextoNaTela('p', `Escolha um número entre 1 e 10. Sua pontuação: ${pontuacao}`); // Instruções e pontuação
 }
 
 // Exibe a mensagem inicial na tela ao carregar o jogo
@@ -33,7 +34,9 @@ function verificarChute() {
         exibirTextoNaTela('h1', 'Acertou!'); // Mensagem de acerto
         let palavraTentativa = tentativas > 1 ? 'tentativas' : 'tentativa'; // Ajusta o plural
         let mensagemTentativas = `Você descobriu o número secreto com ${tentativas} ${palavraTentativa}!`;
-        exibirTextoNaTela('p', mensagemTentativas); // Mensagem de número de tentativas
+        let pontosGanhos = 10 - tentativas; // Calcula os pontos ganhos nesta rodada
+        pontuacao += pontosGanhos; // Atualiza a pontuação
+        exibirTextoNaTela('p', `${mensagemTentativas} Sua pontuação atual: ${pontuacao}`);
         document.getElementById('reiniciar').removeAttribute('disabled'); // Habilita o botão de reiniciar
     } else {
         // Dá uma dica ao jogador sobre o número secreto
@@ -78,6 +81,6 @@ function reiniciarJogo() {
     numeroSecreto = gerarNumeroAleatorio(); // Gera um novo número secreto
     limparCampo(); // Limpa o campo de entrada
     tentativas = 1; // Reinicia o contador de tentativas
-    exibirMensagemInicial(); // Exibe a mensagem inicial novamente
+    exibirMensagemInicial(); // Exibe a mensagem inicial novamente, incluindo a pontuação atual
     document.getElementById('reiniciar').setAttribute('disabled', true); // Desabilita o botão de reiniciar
 }
