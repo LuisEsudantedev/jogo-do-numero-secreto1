@@ -1,78 +1,83 @@
-
+// Exibe um alerta para indicar que a versão do jogo está sendo atualizada
 alert('essa versão está está sendo atualizado.');
 console.log('Versao em atualização.');
 
-//Cria variáveis utilizadas no jogo.
-let listaDeNumerosSorteados = [];
-let numeroLimite = 10;
-let numeroSecreto = gerarNumeroAleatorio();
-let tentativas = 1;
-//Cria função que exibe testo na tela, e seta comando/ configura para português responsiveVoice.
+// Cria variáveis utilizadas no jogo.
+let listaDeNumerosSorteados = []; // Lista para armazenar números já sorteados
+let numeroLimite = 10; // Limite máximo do número secreto
+let numeroSecreto = gerarNumeroAleatorio(); // Número secreto gerado aleatoriamente
+let tentativas = 1; // Contador de tentativas do jogador
+
+// Função que exibe texto na tela e utiliza áudio em português brasileiro com a biblioteca responsiveVoice
 function exibirTextoNaTela(tag, texto) {
-    let campo = document.querySelector(tag);
-    campo.innerHTML = texto;
-    responsiveVoice.speak(texto, 'Brazilian Portuguese Female', {rate:1.2});
+    let campo = document.querySelector(tag); // Seleciona o elemento HTML onde o texto será exibido
+    campo.innerHTML = texto; // Insere o texto no elemento HTML
+    responsiveVoice.speak(texto, 'Brazilian Portuguese Female', {rate: 1.2}); // Reproduz o texto com áudio
 }
-//Cria função para exibir mensagem inicial do jogo.
+
+// Função para exibir a mensagem inicial do jogo
 function exibirMensagemInicial() {
-    exibirTextoNaTela('h1', 'Jogo do número secreto');
-    exibirTextoNaTela('p', 'Escolha um número entre 1 e 10');
+    exibirTextoNaTela('h1', 'Jogo do número secreto'); // Título do jogo
+    exibirTextoNaTela('p', 'Escolha um número entre 1 e 10'); // Instruções para o jogador
 }
-//Exibe mensagem inicial na tela.
+
+// Exibe a mensagem inicial na tela ao carregar o jogo
 exibirMensagemInicial();
 
+// Função para verificar o chute do jogador
 function verificarChute() {
-    let chute = document.querySelector('input').value;
-    
+    let chute = document.querySelector('input').value; // Obtém o valor digitado pelo jogador
+
+    // Verifica se o chute está correto
     if (chute == numeroSecreto) {
-        exibirTextoNaTela('h1', 'Acertou!');
-        let palavraTentativa = tentativas > 1 ? 'tentativas' : 'tentativa';
+        exibirTextoNaTela('h1', 'Acertou!'); // Mensagem de acerto
+        let palavraTentativa = tentativas > 1 ? 'tentativas' : 'tentativa'; // Ajusta o plural
         let mensagemTentativas = `Você descobriu o número secreto com ${tentativas} ${palavraTentativa}!`;
-        exibirTextoNaTela('p', mensagemTentativas);
-        document.getElementById('reiniciar').removeAttribute('disabled');
+        exibirTextoNaTela('p', mensagemTentativas); // Mensagem de número de tentativas
+        document.getElementById('reiniciar').removeAttribute('disabled'); // Habilita o botão de reiniciar
     } else {
+        // Dá uma dica ao jogador sobre o número secreto
         if (chute > numeroSecreto) {
             exibirTextoNaTela('p', 'O número secreto é menor');
         } else {
             exibirTextoNaTela('p', 'O número secreto é maior');
         }
-        tentativas++;
-        limparCampo();
+        tentativas++; // Incrementa o contador de tentativas
+        limparCampo(); // Limpa o campo de entrada do jogador
     }
 }
 
+// Função para gerar um número aleatório único
 function gerarNumeroAleatorio() {
-    let numeroEscolhido = parseInt(Math.random() * numeroLimite + 1);
-    let quantidadeDeElementosNaLista = listaDeNumerosSorteados.length;
+    let numeroEscolhido = parseInt(Math.random() * numeroLimite + 1); // Gera um número aleatório
+    let quantidadeDeElementosNaLista = listaDeNumerosSorteados.length; // Verifica a quantidade de números já sorteados
 
+    // Reinicia a lista de números sorteados se todos já foram usados
     if (quantidadeDeElementosNaLista == numeroLimite) {
         listaDeNumerosSorteados = [];
     }
+
+    // Garante que o número gerado seja único
     if (listaDeNumerosSorteados.includes(numeroEscolhido)) {
-        return gerarNumeroAleatorio();
+        return gerarNumeroAleatorio(); // Tenta novamente se o número já foi sorteado
     } else {
-        listaDeNumerosSorteados.push(numeroEscolhido);
-        console.log(listaDeNumerosSorteados)
+        listaDeNumerosSorteados.push(numeroEscolhido); // Adiciona o número na lista
+        console.log(listaDeNumerosSorteados); // Exibe a lista no console para debug
         return numeroEscolhido;
     }
 }
 
+// Função para limpar o campo de entrada do jogador
 function limparCampo() {
-    chute = document.querySelector('input');
-    chute.value = '';
+    let chute = document.querySelector('input');
+    chute.value = ''; // Limpa o valor digitado
 }
 
+// Função para reiniciar o jogo
 function reiniciarJogo() {
-    numeroSecreto = gerarNumeroAleatorio();
-    limparCampo();
-    tentativas = 1;
-    exibirMensagemInicial();
-    document.getElementById('reiniciar').setAttribute('disabled', true)
+    numeroSecreto = gerarNumeroAleatorio(); // Gera um novo número secreto
+    limparCampo(); // Limpa o campo de entrada
+    tentativas = 1; // Reinicia o contador de tentativas
+    exibirMensagemInicial(); // Exibe a mensagem inicial novamente
+    document.getElementById('reiniciar').setAttribute('disabled', true); // Desabilita o botão de reiniciar
 }
-
-
-
-
-
-
-
