@@ -51,12 +51,16 @@ Siga os passos abaixo para executar o jogo em sua máquina:
 
   2. Navegue até o diretório do projeto:
  
- ```cd jogo-do-numero-secreto
-  3. Abra o arquivo index.html no navegador:
-  --**   No Windows:** Duplo clique no arquivo.
-  --**   No macOS/Linux:** Use o comando:
-open index.html
-🎥 Demonstração
+ ```cd jogo-do-numero-secreto```
+ 
+   3. Abra o arquivo index.html no navegador:
+    * No Windows: Duplo clique no arquivo.
+    * No macOS/Linux: Use o comando:
+      
+  ```open index.html```
+
+---
+ 🎥 Demonstração
 Se desejar, adicione capturas de tela ou um vídeo do jogo em ação aqui:
 
 Tela Inicial: [Insira uma imagem mostrando a tela inicial]
