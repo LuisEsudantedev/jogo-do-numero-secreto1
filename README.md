@@ -63,8 +63,10 @@ Siga os passos abaixo para executar o jogo em sua máquina:
  🎥 Demonstração
 Se desejar, adicione capturas de tela ou um vídeo do jogo em ação aqui:
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
-
+<video width="720" controls>
+  <source src="caminho/do/seu/video.mp4" type="video/mp4">
+  Seu navegador não suporta vídeos.
+</video>
 Tela Inicial: [Insira uma imagem mostrando a tela inicial]
 
 Ao Acertar o Número: [Insira uma imagem mostrando a mensagem de sucesso]
