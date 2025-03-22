@@ -64,7 +64,7 @@ Siga os passos abaixo para executar o jogo em sua máquina:
 Se desejar, adicione capturas de tela ou um vídeo do jogo em ação aqui:
 
 <video width="720" controls>
-  <source src="caminho/do/seu/video.mp4" type="video/mp4">
+  <source src="[caminho/do/seu/video.mp4](https://github.com/LuisEsudantedev/jogo-do-numero-secreto1/issues/3#issue-2918548669)" type="video/mp4">
   Seu navegador não suporta vídeos.
 </video>
 Tela Inicial: [Insira uma imagem mostrando a tela inicial]
